@@ -1,53 +1,83 @@
-.App {
+/* 앱 전체 레이아웃 */
+.app {
   text-align: center;
+  padding-top: 30px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* 토글 슬라이드 컨테이너 */
+.toggle-wrapper {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
+/* 토글 슬라이드 바 */
+.toggle-container {
+  position: relative;
+  display: flex;
+  width: 300px;
+  height: 45px;
+  border: 1px solid #ccc;
+  border-radius: 999px;
+  overflow: hidden;
+  background-color: #f1f1f1;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 토글 버튼 (좌우 탭) */
+.toggle-option {
+  flex: 1;
+  border: none;
+  font-size: 16px;
+  z-index: 2;
+  cursor: pointer;
+  font-weight: 500;
+  background-color: transparent;
+  color: #555;
+  transition: all 0.3s ease;
+}
+
+/* 활성화된 탭 */
+.toggle-option.active {
+  background-color: white;
+  color: black;
+  font-weight: 700;
+  z-index: 3;
+  border-radius: 999px;
+}
+
+/* 토글 슬라이더 효과 */
+.toggle-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: transparent;
+  transition: left 0.3s;
+  z-index: 1;
+}
+
+.toggle-slider.right {
+  left: 50%;
+}
+
+/* QR 생성 / 초기화 버튼 */
 .button {
-  padding: 12px 24px;
+  padding: 10px 20px;           /* 입력창 높이와 유사 */
   font-size: 16px;
   background-color: #007bff;
   color: white;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
+/* 버튼 hover 효과 */
 .button:hover {
   background-color: #0056b3;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  transform: scale(1.05);
 }
